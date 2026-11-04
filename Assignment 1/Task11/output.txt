@@ -1,0 +1,21 @@
+=== DAILY COLLECTION TEST ===
+Duplicate registration test:
+Rejected: Duplicate registration number.
+Exit: TN01A1111 | Ticket: 1001 | Fee: Rs. 10.0
+Exit: TN02B2222 | Ticket: 1002 | Fee: Rs. 60.0
+Exit: TN03C3333 | Ticket: 1003 | Fee: Rs. 90.0
+Exit: TN04D4444 | Ticket: 1004 | Fee: Rs. 0.0
+Total daily collection: Rs. 160.0
+
+=== BOUNDARY TESTS ===
+Zero-minute parking fee: Rs. 0.0
+Exit: TN05E5555 | Ticket: 1001 | Fee: Rs. 0.0
+Exactly 60-minute fee: Rs. 30.0
+Exit: TN06F6666 | Ticket: 1002 | Fee: Rs. 30.0
+Invalid floor/slot test: false
+Invalid slot test: false
+Last slot allocation test: true
+Already released slot test: true
+
+=== INVALID VEHICLE TEST ===
+Unknown vehicle rejected: Unknown vehicle type: bus
