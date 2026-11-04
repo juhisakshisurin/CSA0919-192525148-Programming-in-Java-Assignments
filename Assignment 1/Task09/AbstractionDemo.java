@@ -1,5 +1,4 @@
-
-interface Chargeable {
+interface Chargeable{
     double chargingFee(int kWh);
 
     default String chargingDescription() {
