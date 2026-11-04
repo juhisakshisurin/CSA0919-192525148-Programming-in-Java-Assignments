@@ -1,0 +1,22 @@
+=== NEW VEHICLE TESTS ===
+Parked TN10EB1001 at Floor 0, Slot 0 | Ticket 1001
+Exited TN10EB1001 | Fee: Rs. 25.0
+Parked TN10DV2002 at Floor 0, Slot 0 | Ticket 1002
+Exited TN10DV2002 | Fee: Rs. 90.0
+
+=== ONE-DAY PASS TEST ===
+Parked TN10CA3003 at Floor 0, Slot 0 | Ticket 1003
+Exited TN10CA3003 | Fee: Rs. 0.0
+
+=== STANDARD VEHICLE TEST ===
+Parked TN10CA4004 at Floor 0, Slot 0 | Ticket 1004
+Exited TN10CA4004 | Fee: Rs. 60.0
+
+=== FACILITY CONFIGURATION ===
+Number of floors: 5
+Floor 0 slots: 2
+Floor 1 slots: 3
+Floor 2 slots: 4
+Floor 3 slots: 2
+Floor 4 slots: 5
+Active tickets remaining: 0
