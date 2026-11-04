@@ -1,0 +1,8 @@
+Ticket: 1001
+Vehicle: TN01AB1234
+Allocated Slot: Floor 0, Slot 0
+Duration: 120 minutes
+Invalid duration rejected: Parking duration cannot be negative.
+Slot released: true
+Slot released again: false
+Wrapper comparison using equals: true
