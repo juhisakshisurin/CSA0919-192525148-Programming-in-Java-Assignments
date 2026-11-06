@@ -1,0 +1,22 @@
+ALGORITHM COUNT_LINES_BUFFERED(filePath)
+    lineCount <- 0
+    previousByteWasCarriageReturn <- FALSE
+
+    OPEN filePath using FileInputStream
+    WRAP FileInputStream with BufferedInputStream
+
+    WHILE nextByte can be read
+        IF nextByte equals LINE_FEED THEN
+            lineCount <- lineCount + 1
+            previousByteWasCarriageReturn <- FALSE
+        ELSE IF nextByte equals CARRIAGE_RETURN THEN
+            lineCount <- lineCount + 1
+            previousByteWasCarriageReturn <- TRUE
+        ELSE
+            previousByteWasCarriageReturn <- FALSE
+        ENDIF
+    ENDWHILE
+
+    CLOSE BufferedInputStream
+    RETURN lineCount
+END ALGORITHM
