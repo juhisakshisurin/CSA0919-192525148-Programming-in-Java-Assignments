@@ -1,0 +1,29 @@
+=== ExamPortalDemo ===
+
+--- Valid submission ---
+Saved answer-Valid-submission.pdf
+Submission accepted.
+
+--- Exam closed ---
+Submission rejected: Exam window has closed
+
+--- Not registered ---
+Submission rejected: Student is not registered for this course
+
+--- File too large ---
+Submission failed: Could not store answer-File-too-large.pdf
+Cause: Disk quota exceeded
+Chained stack trace:
+SubmissionStorageException: Could not store answer-File-too-large.pdf
+	at SubmissionStorage.save(ExamPortalDemo.java:44)
+	at ExamService.submit(ExamPortalDemo.java:62)
+	at ExamPortalDemo.runScenario(ExamPortalDemo.java:74)
+	at ExamPortalDemo.main(ExamPortalDemo.java:95)
+Caused by: java.io.IOException: Disk quota exceeded
+	at SubmissionStorage.save(ExamPortalDemo.java:39)
+	... 3 more
+
+=== StorageDemo ===
+Saved answer01.pdf
+Error: Could not store answer02.pdf
+Cause: Disk quota exceeded
