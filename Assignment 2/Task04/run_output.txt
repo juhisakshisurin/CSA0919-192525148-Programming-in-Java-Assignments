@@ -1,0 +1,57 @@
+Assignment 2 (CO2) - Q4: Pharmacy Map Benchmark
+Java version: 21.0.12.1
+Inventory sizes: 1000, 10000, 50000
+Lookups per measured run: 100000
+Measured repetitions: 5
+
+===== MEDICINES: 1000 =====
+Report order verification: PASS
+
+===== MEDICINES: 10000 =====
+Report order verification: PASS
+
+===== MEDICINES: 50000 =====
+Report order verification: PASS
+
+AVERAGE MEASUREMENTS (5 repetitions)
+Map            Medicines Operation                  Average ms  Average ns/op
+HashMap        1000     Put                            0.4048         404.81
+HashMap        1000     Lookup100000                   2.3003          23.00
+HashMap        1000     CodeOrderReport                0.8087         808.71
+HashMap        1000     InsertionOrderReport           0.1055         105.47
+HashMap        10000    Put                            0.7869          78.69
+HashMap        10000    Lookup100000                   3.1657          31.66
+HashMap        10000    CodeOrderReport                4.7034         470.34
+HashMap        10000    InsertionOrderReport           1.0403         104.03
+HashMap        50000    Put                            8.8579         177.16
+HashMap        50000    Lookup100000                   7.6366          76.37
+HashMap        50000    CodeOrderReport               16.0294         320.59
+HashMap        50000    InsertionOrderReport           2.6307          52.61
+TreeMap        1000     Put                            0.3036         303.57
+TreeMap        1000     Lookup100000                  13.6275         136.28
+TreeMap        1000     CodeOrderReport                0.2626         262.64
+TreeMap        1000     InsertionOrderReport           0.2046         204.61
+TreeMap        10000    Put                            2.1547         215.47
+TreeMap        10000    Lookup100000                  25.9695         259.69
+TreeMap        10000    CodeOrderReport                0.6184          61.84
+TreeMap        10000    InsertionOrderReport           1.9420         194.20
+TreeMap        50000    Put                           27.8338         556.68
+TreeMap        50000    Lookup100000                  42.5602         425.60
+TreeMap        50000    CodeOrderReport                1.8533          37.07
+TreeMap        50000    InsertionOrderReport          16.7391         334.78
+LinkedHashMap  1000     Put                            0.2849         284.95
+LinkedHashMap  1000     Lookup100000                   2.4849          24.85
+LinkedHashMap  1000     CodeOrderReport                0.9072         907.20
+LinkedHashMap  1000     InsertionOrderReport           0.1542         154.24
+LinkedHashMap  10000    Put                            1.0094         100.94
+LinkedHashMap  10000    Lookup100000                   3.0265          30.27
+LinkedHashMap  10000    CodeOrderReport                5.0884         508.84
+LinkedHashMap  10000    InsertionOrderReport           0.2698          26.98
+LinkedHashMap  50000    Put                            8.3743         167.49
+LinkedHashMap  50000    Lookup100000                   3.8521          38.52
+LinkedHashMap  50000    CodeOrderReport               21.2499         425.00
+LinkedHashMap  50000    InsertionOrderReport           0.2715           5.43
+
+Raw measurements saved to: task4_results.csv
+Checksum: -3847832382889729487
+Note: timings depend on machine, JVM and system load.
