@@ -1,0 +1,5 @@
+Pool station 2 scanning 10 scripts.
+Pool station 1 scanning 10 scripts.
+Pool station 3 scanning 10 scripts.
+Pool station 4 scanning 10 scripts.
+Executor total scripts: 40
