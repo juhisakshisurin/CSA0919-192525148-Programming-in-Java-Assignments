@@ -1,0 +1,6 @@
+PART A - UNSAFE OPPOSITE-ORDER TRANSFERS
+Both transfer threads still waiting: true
+Thread states: BLOCKED, BLOCKED
+\nPART A - CONSISTENT LOCK ORDERING
+Safe transfers completed: true
+Total balance preserved: 2000
