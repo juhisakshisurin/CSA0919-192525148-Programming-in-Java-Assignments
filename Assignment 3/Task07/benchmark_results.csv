@@ -1,0 +1,5 @@
+pool_size,program_elapsed_ms,wall_clock_ms,success,failure,processed_records,exit_code
+1,337,425.82,9688,312,10000,0
+2,264,365.95,9688,312,10000,0
+4,227,338.18,9688,312,10000,0
+8,208,339.12,9688,312,10000,0

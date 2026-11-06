@@ -1,0 +1,8 @@
+=== SEMESTER RESULT PROCESSING SUMMARY ===
+Expected files: 10
+Successful: 8
+Failed: 2
+Total marks from successful files: 1548
+Processed records: 10
+Elapsed time (ms): 40
+Detailed CSV: /mnt/data/Assignment3_Task7/Task07/../sample_results.csv

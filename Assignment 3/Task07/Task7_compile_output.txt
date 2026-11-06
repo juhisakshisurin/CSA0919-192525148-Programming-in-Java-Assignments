@@ -1,0 +1,22 @@
+Assignment 3 - Task 7
+Compilation Output
+
+Source files:
+- ResultProcessor.java
+- ScoreFileGenerator.java
+
+Compilation command:
+    javac *.java
+
+Result:
+Compilation successful. No compiler errors were reported.
+
+To compile on Windows:
+1. Open Command Prompt.
+2. Change directory to the Task07 folder.
+3. Run: javac *.java
+
+To run the processor after generating or preparing the input data:
+    java ResultProcessor ..\score_data 1 ..\results_pool_1.csv
+
+Replace 1 with 2, 4, or 8 to test the other thread-pool sizes.
