@@ -1,0 +1,331 @@
+Assignment 2 (CO2) - Task 2: Playlist collection benchmark
+Java version: 21.0.12.1
+Playlist sizes: 500, 5000, 20000
+Measured repetitions: 5
+Warm-up repetitions: 1
+Preparing warm-up trials...
+
+===== PLAYLIST SIZE: 500 =====
+  ArrayList  AddAtEnd      run 1:     0.161 ms (  322.65 ns/op)
+  ArrayList  AddAtEnd      run 2:     0.069 ms (  137.30 ns/op)
+  ArrayList  AddAtEnd      run 3:     0.065 ms (  129.37 ns/op)
+  ArrayList  AddAtEnd      run 4:     0.063 ms (  126.39 ns/op)
+  ArrayList  AddAtEnd      run 5:     0.072 ms (  144.73 ns/op)
+  ArrayList  InsertFront   run 1:     0.129 ms (  322.25 ns/op)
+  ArrayList  InsertFront   run 2:     0.056 ms (  140.11 ns/op)
+  ArrayList  InsertFront   run 3:     0.076 ms (  191.13 ns/op)
+  ArrayList  InsertFront   run 4:     0.076 ms (  190.28 ns/op)
+  ArrayList  InsertFront   run 5:     0.094 ms (  235.55 ns/op)
+  ArrayList  RemoveFront   run 1:     0.069 ms (  173.56 ns/op)
+  ArrayList  RemoveFront   run 2:     0.045 ms (  112.27 ns/op)
+  ArrayList  RemoveFront   run 3:     0.082 ms (  206.01 ns/op)
+  ArrayList  RemoveFront   run 4:     0.043 ms (  107.18 ns/op)
+  ArrayList  RemoveFront   run 5:     0.044 ms (  111.09 ns/op)
+  ArrayList  InsertMiddle  run 1:     0.071 ms (  178.39 ns/op)
+  ArrayList  InsertMiddle  run 2:     0.059 ms (  146.37 ns/op)
+  ArrayList  InsertMiddle  run 3:     0.085 ms (  212.59 ns/op)
+  ArrayList  InsertMiddle  run 4:     0.075 ms (  187.93 ns/op)
+  ArrayList  InsertMiddle  run 5:     0.081 ms (  201.92 ns/op)
+  ArrayList  RemoveMiddle  run 1:     0.062 ms (  154.23 ns/op)
+  ArrayList  RemoveMiddle  run 2:     0.048 ms (  119.50 ns/op)
+  ArrayList  RemoveMiddle  run 3:     0.041 ms (  101.70 ns/op)
+  ArrayList  RemoveMiddle  run 4:     0.043 ms (  107.41 ns/op)
+  ArrayList  RemoveMiddle  run 5:     0.046 ms (  114.64 ns/op)
+  ArrayList  GetKth        run 1:     0.025 ms (   62.32 ns/op)
+  ArrayList  GetKth        run 2:     0.026 ms (   64.35 ns/op)
+  ArrayList  GetKth        run 3:     0.026 ms (   66.10 ns/op)
+  ArrayList  GetKth        run 4:     0.027 ms (   68.45 ns/op)
+  ArrayList  GetKth        run 5:     0.029 ms (   71.83 ns/op)
+  ArrayList  IterateAll    run 1:     0.509 ms (    5.09 ns/op)
+  ArrayList  IterateAll    run 2:     0.487 ms (    4.87 ns/op)
+  ArrayList  IterateAll    run 3:     0.398 ms (    3.98 ns/op)
+  ArrayList  IterateAll    run 4:     0.428 ms (    4.28 ns/op)
+  ArrayList  IterateAll    run 5:     0.441 ms (    4.41 ns/op)
+  LinkedList AddAtEnd      run 1:     0.064 ms (  127.21 ns/op)
+  LinkedList AddAtEnd      run 2:     0.062 ms (  124.18 ns/op)
+  LinkedList AddAtEnd      run 3:     0.063 ms (  126.69 ns/op)
+  LinkedList AddAtEnd      run 4:     0.068 ms (  135.42 ns/op)
+  LinkedList AddAtEnd      run 5:     0.060 ms (  119.70 ns/op)
+  LinkedList InsertFront   run 1:     0.059 ms (  146.74 ns/op)
+  LinkedList InsertFront   run 2:     0.067 ms (  166.75 ns/op)
+  LinkedList InsertFront   run 3:     0.066 ms (  166.20 ns/op)
+  LinkedList InsertFront   run 4:     0.090 ms (  225.03 ns/op)
+  LinkedList InsertFront   run 5:     0.059 ms (  147.22 ns/op)
+  LinkedList RemoveFront   run 1:     0.029 ms (   73.41 ns/op)
+  LinkedList RemoveFront   run 2:     0.026 ms (   65.05 ns/op)
+  LinkedList RemoveFront   run 3:     0.028 ms (   69.68 ns/op)
+  LinkedList RemoveFront   run 4:     0.027 ms (   67.57 ns/op)
+  LinkedList RemoveFront   run 5:     0.027 ms (   67.28 ns/op)
+  LinkedList InsertMiddle  run 1:     0.388 ms (  970.43 ns/op)
+  LinkedList InsertMiddle  run 2:     0.369 ms (  923.61 ns/op)
+  LinkedList InsertMiddle  run 3:     0.421 ms ( 1051.40 ns/op)
+  LinkedList InsertMiddle  run 4:     0.422 ms ( 1053.98 ns/op)
+  LinkedList InsertMiddle  run 5:     0.316 ms (  788.99 ns/op)
+  LinkedList RemoveMiddle  run 1:     0.262 ms (  656.17 ns/op)
+  LinkedList RemoveMiddle  run 2:     0.298 ms (  746.25 ns/op)
+  LinkedList RemoveMiddle  run 3:     0.261 ms (  651.66 ns/op)
+  LinkedList RemoveMiddle  run 4:     0.291 ms (  727.17 ns/op)
+  LinkedList RemoveMiddle  run 5:     0.263 ms (  657.37 ns/op)
+  LinkedList GetKth        run 1:     0.082 ms (  205.15 ns/op)
+  LinkedList GetKth        run 2:     0.082 ms (  204.00 ns/op)
+  LinkedList GetKth        run 3:     0.099 ms (  248.29 ns/op)
+  LinkedList GetKth        run 4:     0.111 ms (  277.21 ns/op)
+  LinkedList GetKth        run 5:     0.111 ms (  278.49 ns/op)
+  LinkedList IterateAll    run 1:     0.614 ms (    6.14 ns/op)
+  LinkedList IterateAll    run 2:     0.605 ms (    6.05 ns/op)
+  LinkedList IterateAll    run 3:     0.403 ms (    4.03 ns/op)
+  LinkedList IterateAll    run 4:     0.363 ms (    3.63 ns/op)
+  LinkedList IterateAll    run 5:     0.431 ms (    4.31 ns/op)
+
+----- UP NEXT QUEUE: size 500 -----
+  ArrayList  UpNextCycle   run 1:     0.209 ms (  104.41 ns/op)
+  ArrayList  UpNextCycle   run 2:     0.229 ms (  114.32 ns/op)
+  ArrayList  UpNextCycle   run 3:     0.247 ms (  123.38 ns/op)
+  ArrayList  UpNextCycle   run 4:     0.220 ms (  109.77 ns/op)
+  ArrayList  UpNextCycle   run 5:     0.211 ms (  105.57 ns/op)
+  LinkedList UpNextCycle   run 1:     0.159 ms (   79.70 ns/op)
+  LinkedList UpNextCycle   run 2:     0.185 ms (   92.51 ns/op)
+  LinkedList UpNextCycle   run 3:     0.187 ms (   93.50 ns/op)
+  LinkedList UpNextCycle   run 4:     0.149 ms (   74.63 ns/op)
+  LinkedList UpNextCycle   run 5:     0.191 ms (   95.54 ns/op)
+  ArrayDeque UpNextCycle   run 1:     0.202 ms (  101.12 ns/op)
+  ArrayDeque UpNextCycle   run 2:     0.177 ms (   88.36 ns/op)
+  ArrayDeque UpNextCycle   run 3:     0.204 ms (  102.18 ns/op)
+  ArrayDeque UpNextCycle   run 4:     0.154 ms (   76.94 ns/op)
+  ArrayDeque UpNextCycle   run 5:     0.174 ms (   87.17 ns/op)
+
+===== PLAYLIST SIZE: 5000 =====
+  ArrayList  AddAtEnd      run 1:     0.670 ms (  133.95 ns/op)
+  ArrayList  AddAtEnd      run 2:     0.629 ms (  125.86 ns/op)
+  ArrayList  AddAtEnd      run 3:     0.665 ms (  133.01 ns/op)
+  ArrayList  AddAtEnd      run 4:     2.850 ms (  570.06 ns/op)
+  ArrayList  AddAtEnd      run 5:     0.459 ms (   91.89 ns/op)
+  ArrayList  InsertFront   run 1:     0.155 ms (  386.85 ns/op)
+  ArrayList  InsertFront   run 2:     0.109 ms (  273.30 ns/op)
+  ArrayList  InsertFront   run 3:     0.107 ms (  266.49 ns/op)
+  ArrayList  InsertFront   run 4:     0.108 ms (  269.70 ns/op)
+  ArrayList  InsertFront   run 5:     0.107 ms (  267.12 ns/op)
+  ArrayList  RemoveFront   run 1:     0.101 ms (  251.57 ns/op)
+  ArrayList  RemoveFront   run 2:     0.157 ms (  392.88 ns/op)
+  ArrayList  RemoveFront   run 3:     0.160 ms (  400.37 ns/op)
+  ArrayList  RemoveFront   run 4:     0.157 ms (  393.03 ns/op)
+  ArrayList  RemoveFront   run 5:     0.163 ms (  408.18 ns/op)
+  ArrayList  InsertMiddle  run 1:     0.113 ms (  283.04 ns/op)
+  ArrayList  InsertMiddle  run 2:     0.114 ms (  284.79 ns/op)
+  ArrayList  InsertMiddle  run 3:     0.101 ms (  253.55 ns/op)
+  ArrayList  InsertMiddle  run 4:     0.108 ms (  270.55 ns/op)
+  ArrayList  InsertMiddle  run 5:     0.108 ms (  269.72 ns/op)
+  ArrayList  RemoveMiddle  run 1:     0.091 ms (  227.08 ns/op)
+  ArrayList  RemoveMiddle  run 2:     0.068 ms (  171.08 ns/op)
+  ArrayList  RemoveMiddle  run 3:     0.096 ms (  239.68 ns/op)
+  ArrayList  RemoveMiddle  run 4:     0.069 ms (  171.25 ns/op)
+  ArrayList  RemoveMiddle  run 5:     0.069 ms (  173.71 ns/op)
+  ArrayList  GetKth        run 1:     0.005 ms (   53.78 ns/op)
+  ArrayList  GetKth        run 2:     0.005 ms (   52.97 ns/op)
+  ArrayList  GetKth        run 3:     0.005 ms (   49.17 ns/op)
+  ArrayList  GetKth        run 4:     0.005 ms (   52.08 ns/op)
+  ArrayList  GetKth        run 5:     0.005 ms (   49.28 ns/op)
+  ArrayList  IterateAll    run 1:     0.218 ms (    2.18 ns/op)
+  ArrayList  IterateAll    run 2:     0.234 ms (    2.34 ns/op)
+  ArrayList  IterateAll    run 3:     0.226 ms (    2.26 ns/op)
+  ArrayList  IterateAll    run 4:     0.197 ms (    1.97 ns/op)
+  ArrayList  IterateAll    run 5:     0.197 ms (    1.97 ns/op)
+  LinkedList AddAtEnd      run 1:     0.248 ms (   49.70 ns/op)
+  LinkedList AddAtEnd      run 2:     0.204 ms (   40.73 ns/op)
+  LinkedList AddAtEnd      run 3:     0.281 ms (   56.16 ns/op)
+  LinkedList AddAtEnd      run 4:     0.202 ms (   40.41 ns/op)
+  LinkedList AddAtEnd      run 5:     0.260 ms (   52.05 ns/op)
+  LinkedList InsertFront   run 1:     0.039 ms (   96.42 ns/op)
+  LinkedList InsertFront   run 2:     0.029 ms (   72.61 ns/op)
+  LinkedList InsertFront   run 3:     0.029 ms (   72.13 ns/op)
+  LinkedList InsertFront   run 4:     0.036 ms (   90.61 ns/op)
+  LinkedList InsertFront   run 5:     0.040 ms (   99.37 ns/op)
+  LinkedList RemoveFront   run 1:     0.048 ms (  118.98 ns/op)
+  LinkedList RemoveFront   run 2:     0.025 ms (   63.57 ns/op)
+  LinkedList RemoveFront   run 3:     0.029 ms (   73.58 ns/op)
+  LinkedList RemoveFront   run 4:     0.022 ms (   55.76 ns/op)
+  LinkedList RemoveFront   run 5:     0.028 ms (   69.30 ns/op)
+  LinkedList InsertMiddle  run 1:     2.208 ms ( 5518.82 ns/op)
+  LinkedList InsertMiddle  run 2:     2.135 ms ( 5336.28 ns/op)
+  LinkedList InsertMiddle  run 3:     2.127 ms ( 5317.90 ns/op)
+  LinkedList InsertMiddle  run 4:     2.081 ms ( 5202.26 ns/op)
+  LinkedList InsertMiddle  run 5:     2.061 ms ( 5152.23 ns/op)
+  LinkedList RemoveMiddle  run 1:     2.029 ms ( 5072.84 ns/op)
+  LinkedList RemoveMiddle  run 2:     2.042 ms ( 5105.86 ns/op)
+  LinkedList RemoveMiddle  run 3:     2.032 ms ( 5080.43 ns/op)
+  LinkedList RemoveMiddle  run 4:     1.998 ms ( 4995.58 ns/op)
+  LinkedList RemoveMiddle  run 5:     1.996 ms ( 4989.32 ns/op)
+  LinkedList GetKth        run 1:     0.249 ms ( 2486.46 ns/op)
+  LinkedList GetKth        run 2:     0.252 ms ( 2520.91 ns/op)
+  LinkedList GetKth        run 3:     0.232 ms ( 2321.72 ns/op)
+  LinkedList GetKth        run 4:     0.232 ms ( 2318.51 ns/op)
+  LinkedList GetKth        run 5:     0.236 ms ( 2357.77 ns/op)
+  LinkedList IterateAll    run 1:     0.332 ms (    3.32 ns/op)
+  LinkedList IterateAll    run 2:     0.292 ms (    2.92 ns/op)
+  LinkedList IterateAll    run 3:     0.497 ms (    4.97 ns/op)
+  LinkedList IterateAll    run 4:     0.507 ms (    5.07 ns/op)
+  LinkedList IterateAll    run 5:     0.353 ms (    3.53 ns/op)
+
+----- UP NEXT QUEUE: size 5000 -----
+  ArrayList  UpNextCycle   run 1:     0.392 ms (  195.82 ns/op)
+  ArrayList  UpNextCycle   run 2:     0.396 ms (  197.89 ns/op)
+  ArrayList  UpNextCycle   run 3:     0.430 ms (  215.15 ns/op)
+  ArrayList  UpNextCycle   run 4:     0.393 ms (  196.60 ns/op)
+  ArrayList  UpNextCycle   run 5:     0.407 ms (  203.32 ns/op)
+  LinkedList UpNextCycle   run 1:     0.092 ms (   46.21 ns/op)
+  LinkedList UpNextCycle   run 2:     0.082 ms (   41.21 ns/op)
+  LinkedList UpNextCycle   run 3:     0.115 ms (   57.55 ns/op)
+  LinkedList UpNextCycle   run 4:     0.115 ms (   57.68 ns/op)
+  LinkedList UpNextCycle   run 5:     0.081 ms (   40.61 ns/op)
+  ArrayDeque UpNextCycle   run 1:     0.085 ms (   42.68 ns/op)
+  ArrayDeque UpNextCycle   run 2:     0.080 ms (   40.11 ns/op)
+  ArrayDeque UpNextCycle   run 3:     0.093 ms (   46.65 ns/op)
+  ArrayDeque UpNextCycle   run 4:     0.126 ms (   63.22 ns/op)
+  ArrayDeque UpNextCycle   run 5:     0.096 ms (   48.18 ns/op)
+
+===== PLAYLIST SIZE: 20000 =====
+  ArrayList  AddAtEnd      run 1:     0.989 ms (   49.44 ns/op)
+  ArrayList  AddAtEnd      run 2:     1.061 ms (   53.05 ns/op)
+  ArrayList  AddAtEnd      run 3:     1.026 ms (   51.29 ns/op)
+  ArrayList  AddAtEnd      run 4:     0.949 ms (   47.47 ns/op)
+  ArrayList  AddAtEnd      run 5:     0.897 ms (   44.86 ns/op)
+  ArrayList  InsertFront   run 1:     0.410 ms ( 1023.91 ns/op)
+  ArrayList  InsertFront   run 2:     0.431 ms ( 1077.19 ns/op)
+  ArrayList  InsertFront   run 3:     0.473 ms ( 1182.74 ns/op)
+  ArrayList  InsertFront   run 4:     0.408 ms ( 1019.70 ns/op)
+  ArrayList  InsertFront   run 5:     0.449 ms ( 1121.60 ns/op)
+  ArrayList  RemoveFront   run 1:     0.389 ms (  971.51 ns/op)
+  ArrayList  RemoveFront   run 2:     0.387 ms (  966.95 ns/op)
+  ArrayList  RemoveFront   run 3:     0.442 ms ( 1105.60 ns/op)
+  ArrayList  RemoveFront   run 4:     0.434 ms ( 1085.42 ns/op)
+  ArrayList  RemoveFront   run 5:     0.437 ms ( 1092.13 ns/op)
+  ArrayList  InsertMiddle  run 1:     0.272 ms (  679.47 ns/op)
+  ArrayList  InsertMiddle  run 2:     0.265 ms (  663.45 ns/op)
+  ArrayList  InsertMiddle  run 3:     0.273 ms (  681.60 ns/op)
+  ArrayList  InsertMiddle  run 4:     0.232 ms (  579.28 ns/op)
+  ArrayList  InsertMiddle  run 5:     0.231 ms (  577.38 ns/op)
+  ArrayList  RemoveMiddle  run 1:     0.210 ms (  524.20 ns/op)
+  ArrayList  RemoveMiddle  run 2:     0.230 ms (  576.07 ns/op)
+  ArrayList  RemoveMiddle  run 3:     0.404 ms ( 1008.99 ns/op)
+  ArrayList  RemoveMiddle  run 4:     0.301 ms (  751.36 ns/op)
+  ArrayList  RemoveMiddle  run 5:     0.335 ms (  837.96 ns/op)
+  ArrayList  GetKth        run 1:     0.006 ms (   59.99 ns/op)
+  ArrayList  GetKth        run 2:     0.006 ms (   55.78 ns/op)
+  ArrayList  GetKth        run 3:     0.005 ms (   51.77 ns/op)
+  ArrayList  GetKth        run 4:     0.007 ms (   66.30 ns/op)
+  ArrayList  GetKth        run 5:     0.005 ms (   52.07 ns/op)
+  ArrayList  IterateAll    run 1:     0.207 ms (    2.07 ns/op)
+  ArrayList  IterateAll    run 2:     0.202 ms (    2.02 ns/op)
+  ArrayList  IterateAll    run 3:     0.210 ms (    2.10 ns/op)
+  ArrayList  IterateAll    run 4:     0.238 ms (    2.38 ns/op)
+  ArrayList  IterateAll    run 5:     0.209 ms (    2.09 ns/op)
+  LinkedList AddAtEnd      run 1:     0.688 ms (   34.42 ns/op)
+  LinkedList AddAtEnd      run 2:     0.617 ms (   30.84 ns/op)
+  LinkedList AddAtEnd      run 3:     0.739 ms (   36.93 ns/op)
+  LinkedList AddAtEnd      run 4:     0.690 ms (   34.50 ns/op)
+  LinkedList AddAtEnd      run 5:     0.649 ms (   32.47 ns/op)
+  LinkedList InsertFront   run 1:     0.038 ms (   95.82 ns/op)
+  LinkedList InsertFront   run 2:     0.037 ms (   92.39 ns/op)
+  LinkedList InsertFront   run 3:     0.039 ms (   98.45 ns/op)
+  LinkedList InsertFront   run 4:     0.035 ms (   86.58 ns/op)
+  LinkedList InsertFront   run 5:     0.037 ms (   91.79 ns/op)
+  LinkedList RemoveFront   run 1:     0.015 ms (   36.33 ns/op)
+  LinkedList RemoveFront   run 2:     0.013 ms (   33.50 ns/op)
+  LinkedList RemoveFront   run 3:     0.015 ms (   37.11 ns/op)
+  LinkedList RemoveFront   run 4:     0.013 ms (   32.40 ns/op)
+  LinkedList RemoveFront   run 5:     0.016 ms (   40.51 ns/op)
+  LinkedList InsertMiddle  run 1:     8.969 ms (22423.07 ns/op)
+  LinkedList InsertMiddle  run 2:     8.654 ms (21633.84 ns/op)
+  LinkedList InsertMiddle  run 3:     9.336 ms (23340.62 ns/op)
+  LinkedList InsertMiddle  run 4:     9.297 ms (23241.55 ns/op)
+  LinkedList InsertMiddle  run 5:     9.192 ms (22979.12 ns/op)
+  LinkedList RemoveMiddle  run 1:     8.571 ms (21427.11 ns/op)
+  LinkedList RemoveMiddle  run 2:    10.250 ms (25625.94 ns/op)
+  LinkedList RemoveMiddle  run 3:    11.486 ms (28716.21 ns/op)
+  LinkedList RemoveMiddle  run 4:    10.466 ms (26164.68 ns/op)
+  LinkedList RemoveMiddle  run 5:     9.609 ms (24022.50 ns/op)
+  LinkedList GetKth        run 1:     1.155 ms (11547.59 ns/op)
+  LinkedList GetKth        run 2:     1.088 ms (10878.41 ns/op)
+  LinkedList GetKth        run 3:     1.092 ms (10920.77 ns/op)
+  LinkedList GetKth        run 4:     1.244 ms (12437.70 ns/op)
+  LinkedList GetKth        run 5:     1.193 ms (11932.26 ns/op)
+  LinkedList IterateAll    run 1:     0.339 ms (    3.39 ns/op)
+  LinkedList IterateAll    run 2:     0.334 ms (    3.34 ns/op)
+  LinkedList IterateAll    run 3:     0.431 ms (    4.31 ns/op)
+  LinkedList IterateAll    run 4:     0.492 ms (    4.92 ns/op)
+  LinkedList IterateAll    run 5:     0.332 ms (    3.32 ns/op)
+
+----- UP NEXT QUEUE: size 20000 -----
+  ArrayList  UpNextCycle   run 1:     1.456 ms (  727.98 ns/op)
+  ArrayList  UpNextCycle   run 2:     1.671 ms (  835.66 ns/op)
+  ArrayList  UpNextCycle   run 3:     1.449 ms (  724.47 ns/op)
+  ArrayList  UpNextCycle   run 4:     1.592 ms (  795.92 ns/op)
+  ArrayList  UpNextCycle   run 5:     1.516 ms (  758.02 ns/op)
+  LinkedList UpNextCycle   run 1:     0.118 ms (   59.16 ns/op)
+  LinkedList UpNextCycle   run 2:     0.078 ms (   39.21 ns/op)
+  LinkedList UpNextCycle   run 3:     0.077 ms (   38.40 ns/op)
+  LinkedList UpNextCycle   run 4:     0.077 ms (   38.71 ns/op)
+  LinkedList UpNextCycle   run 5:     0.073 ms (   36.31 ns/op)
+  ArrayDeque UpNextCycle   run 1:     0.103 ms (   51.26 ns/op)
+  ArrayDeque UpNextCycle   run 2:     0.074 ms (   37.21 ns/op)
+  ArrayDeque UpNextCycle   run 3:     0.075 ms (   37.41 ns/op)
+  ArrayDeque UpNextCycle   run 4:     0.076 ms (   38.08 ns/op)
+  ArrayDeque UpNextCycle   run 5:     0.117 ms (   58.70 ns/op)
+
+AVERAGE TIME PER OPERATION (5 measured repetitions)
+Structure  Size    Operation           Average ms  Average ns/op
+ArrayList  500     AddAtEnd                0.0860         172.09
+ArrayList  500     InsertFront             0.0863         215.86
+ArrayList  500     RemoveFront             0.0568         142.02
+ArrayList  500     InsertMiddle            0.0742         185.44
+ArrayList  500     RemoveMiddle            0.0478         119.50
+ArrayList  500     GetKth                  0.0266          66.61
+ArrayList  500     IterateAll              0.4526           4.53
+ArrayList  500     UpNextCycle             0.2230         111.49
+ArrayList  5000    AddAtEnd                1.0548         210.95
+ArrayList  5000    InsertFront             0.1171         292.69
+ArrayList  5000    RemoveFront             0.1477         369.20
+ArrayList  5000    InsertMiddle            0.1089         272.33
+ArrayList  5000    RemoveMiddle            0.0786         196.56
+ArrayList  5000    GetKth                  0.0051          51.46
+ArrayList  5000    IterateAll              0.2144           2.14
+ArrayList  5000    UpNextCycle             0.4035         201.76
+ArrayList  20000   AddAtEnd                0.9844          49.22
+ArrayList  20000   InsertFront             0.4340        1085.03
+ArrayList  20000   RemoveFront             0.4177        1044.32
+ArrayList  20000   InsertMiddle            0.2545         636.24
+ArrayList  20000   RemoveMiddle            0.2959         739.71
+ArrayList  20000   GetKth                  0.0057          57.18
+ArrayList  20000   IterateAll              0.2130           2.13
+ArrayList  20000   UpNextCycle             1.5368         768.41
+LinkedList 500     AddAtEnd                0.0633         126.64
+LinkedList 500     InsertFront             0.0682         170.39
+LinkedList 500     RemoveFront             0.0274          68.60
+LinkedList 500     InsertMiddle            0.3831         957.68
+LinkedList 500     RemoveMiddle            0.2751         687.72
+LinkedList 500     GetKth                  0.0971         242.63
+LinkedList 500     IterateAll              0.4832           4.83
+LinkedList 500     UpNextCycle             0.1744          87.18
+LinkedList 5000    AddAtEnd                0.2391          47.81
+LinkedList 5000    InsertFront             0.0345          86.23
+LinkedList 5000    RemoveFront             0.0305          76.24
+LinkedList 5000    InsertMiddle            2.1222        5305.50
+LinkedList 5000    RemoveMiddle            2.0195        5048.81
+LinkedList 5000    GetKth                  0.2401        2401.07
+LinkedList 5000    IterateAll              0.3961           3.96
+LinkedList 5000    UpNextCycle             0.0973          48.65
+LinkedList 20000   AddAtEnd                0.6766          33.83
+LinkedList 20000   InsertFront             0.0372          93.00
+LinkedList 20000   RemoveFront             0.0144          35.97
+LinkedList 20000   InsertMiddle            9.0895       22723.64
+LinkedList 20000   RemoveMiddle           10.0765       25191.29
+LinkedList 20000   GetKth                  1.1543       11543.35
+LinkedList 20000   IterateAll              0.3857           3.86
+LinkedList 20000   UpNextCycle             0.0847          42.36
+ArrayDeque 500     UpNextCycle             0.1823          91.15
+ArrayDeque 5000    UpNextCycle             0.0963          48.17
+ArrayDeque 20000   UpNextCycle             0.0891          44.53
+
+Raw measurements saved to: task2_results.csv
+Checksum: -1987005405161466752
+Note: timings are machine/JVM dependent; compare patterns, not absolute values.
