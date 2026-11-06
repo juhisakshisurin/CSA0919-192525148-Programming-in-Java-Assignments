@@ -1,0 +1,73 @@
+Assignment 2 - CO2 - Task 1: Ticket text benchmark
+Java version: 21.0.12.1
+JVM: OpenJDK 64-Bit Server VM
+Measured repetitions: 5
+Output equivalence check: PASS
+Sample ticket: PNR=PNR-2026-000001 | Passenger=ARUN KUMAR | Train=CHENNAI EXPRESS | Coach=S2 | Berth=24 | Fare=850.00
+
+Running: Short ticket - 1 x 6 fields
+Run 1 - String       :      0.056 ms | heap delta: 0 bytes
+Run 1 - StringBuilder :      0.089 ms | heap delta: 272648 bytes
+Run 1 - StringBuffer :      0.070 ms | heap delta: 272648 bytes
+Run 2 - StringBuilder :      0.068 ms | heap delta: 272648 bytes
+Run 2 - StringBuffer :      0.057 ms | heap delta: 272648 bytes
+Run 2 - String       :      0.079 ms | heap delta: 272648 bytes
+Run 3 - StringBuffer :      0.057 ms | heap delta: 272648 bytes
+Run 3 - String       :      0.091 ms | heap delta: 272648 bytes
+Run 3 - StringBuilder :      0.081 ms | heap delta: 272648 bytes
+Run 4 - String       :      0.086 ms | heap delta: 272648 bytes
+Run 4 - StringBuilder :      0.086 ms | heap delta: 272648 bytes
+Run 4 - StringBuffer :      0.057 ms | heap delta: 272648 bytes
+Run 5 - StringBuilder :      0.076 ms | heap delta: 272648 bytes
+Run 5 - StringBuffer :      0.068 ms | heap delta: 272648 bytes
+Run 5 - String       :      0.075 ms | heap delta: 272648 bytes
+
+Running: High load - 10000 x 50 fields
+Run 1 - String       :     88.497 ms | heap delta: 19922944 bytes
+Run 1 - StringBuilder :      7.231 ms | heap delta: 34078720 bytes
+Run 1 - StringBuffer :      9.012 ms | heap delta: 34078720 bytes
+Run 2 - StringBuilder :      5.099 ms | heap delta: 34078720 bytes
+Run 2 - StringBuffer :      5.382 ms | heap delta: 34078720 bytes
+Run 2 - String       :     45.058 ms | heap delta: 92637608 bytes
+Run 3 - StringBuffer :      4.835 ms | heap delta: 34078720 bytes
+Run 3 - String       :     23.031 ms | heap delta: 92913216 bytes
+Run 3 - StringBuilder :      4.109 ms | heap delta: 34078720 bytes
+Run 4 - String       :     19.753 ms | heap delta: 92581496 bytes
+Run 4 - StringBuilder :      4.102 ms | heap delta: 34078720 bytes
+Run 4 - StringBuffer :      4.191 ms | heap delta: 34078720 bytes
+Run 5 - StringBuilder :      4.585 ms | heap delta: 34078720 bytes
+Run 5 - StringBuffer :      4.156 ms | heap delta: 34078720 bytes
+Run 5 - String       :     27.137 ms | heap delta: 92798976 bytes
+
+Running: Wide ticket - 1000 x 200 fields
+Run 1 - String       :     37.021 ms | heap delta: 64966752 bytes
+Run 1 - StringBuilder :      2.368 ms | heap delta: 13631488 bytes
+Run 1 - StringBuffer :      3.086 ms | heap delta: 13631488 bytes
+Run 2 - StringBuilder :      3.766 ms | heap delta: 13631488 bytes
+Run 2 - StringBuffer :      3.797 ms | heap delta: 13631488 bytes
+Run 2 - String       :     38.834 ms | heap delta: 64775712 bytes
+Run 3 - StringBuffer :      2.588 ms | heap delta: 13631488 bytes
+Run 3 - String       :     31.591 ms | heap delta: 65070048 bytes
+Run 3 - StringBuilder :      2.716 ms | heap delta: 13631488 bytes
+Run 4 - String       :     32.561 ms | heap delta: 64876096 bytes
+Run 4 - StringBuilder :      2.795 ms | heap delta: 13631488 bytes
+Run 4 - StringBuffer :      2.623 ms | heap delta: 13631488 bytes
+Run 5 - StringBuilder :      2.393 ms | heap delta: 13631488 bytes
+Run 5 - StringBuffer :      2.030 ms | heap delta: 13631488 bytes
+Run 5 - String       :     32.743 ms | heap delta: 64973304 bytes
+
+AVERAGE TIME OVER 5 MEASURED RUNS
+Workload | Approach | Average ms | Estimated intermediate Strings per run
+Short ticket - 1 x 6 fields | String | 0.077304 | 5
+Short ticket - 1 x 6 fields | StringBuilder | 0.080224 | 0
+Short ticket - 1 x 6 fields | StringBuffer | 0.061817 | 0
+High load - 10000 x 50 fields | String | 40.695009 | 490000
+High load - 10000 x 50 fields | StringBuilder | 5.025112 | 0
+High load - 10000 x 50 fields | StringBuffer | 5.515353 | 0
+Wide ticket - 1000 x 200 fields | String | 34.549910 | 199000
+Wide ticket - 1000 x 200 fields | StringBuilder | 2.807711 | 0
+Wide ticket - 1000 x 200 fields | StringBuffer | 2.824744 | 0
+
+Raw measurements saved to: task1_results.csv
+Checksum (prevents unused-result measurements): 3305167803665281587
+Note: heap deltas are approximate snapshots, not peak-memory measurements.
