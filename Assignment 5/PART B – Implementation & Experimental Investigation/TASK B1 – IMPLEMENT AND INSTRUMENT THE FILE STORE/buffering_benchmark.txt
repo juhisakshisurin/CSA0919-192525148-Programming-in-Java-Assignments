@@ -1,0 +1,3 @@
+1 MB | 1048576 bytes | unbuffered median 215.032 ms | buffered median 7.001 ms | lines 13274
+10 MB | 10485760 bytes | unbuffered median 2015.105 ms | buffered median 65.127 ms | lines 132732
+50 MB | 52428800 bytes | unbuffered median 10547.707 ms | buffered median 306.928 ms | lines 663656

@@ -1,0 +1,4 @@
+1000 records | target at EOF | median 2.169 ms
+10000 records | target at EOF | median 9.853 ms
+50000 records | target at EOF | median 12.167 ms
+100000 records | target at EOF | median 21.397 ms

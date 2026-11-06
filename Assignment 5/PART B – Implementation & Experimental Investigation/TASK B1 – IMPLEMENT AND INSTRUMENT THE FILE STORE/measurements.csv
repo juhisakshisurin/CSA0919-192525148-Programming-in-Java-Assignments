@@ -1,0 +1,4 @@
+experiment,input_size,unbuffered_ms,buffered_ms,notes
+line_count,1 MiB,215.032,7.001,median of 3; 8 KiB buffer
+line_count,10 MiB,2015.105,65.127,median of 3; 8 KiB buffer
+line_count,50 MiB,10547.707,306.928,median of 3; 8 KiB buffer
