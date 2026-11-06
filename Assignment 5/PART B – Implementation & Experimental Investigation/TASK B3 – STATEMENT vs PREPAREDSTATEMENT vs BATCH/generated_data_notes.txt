@@ -1,0 +1,6 @@
+B3 data is generated in Java to avoid large manually maintained files.
+Small correctness set: 10 records (prefix ST).
+Performance sizes: 1,000, 10,000, 100,000 records.
+Transaction failure test: 10,000 rows; invalid amount is placed at zero-based index 5000,
+the first record of batch 6. With auto-commit on, the first five completed batches are committed.
+With a single transaction, rollback should leave zero rows.
