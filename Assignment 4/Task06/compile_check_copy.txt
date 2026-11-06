@@ -1,0 +1,3 @@
+Java source compilation successful.
+The Java files compiled using the JDK JDBC APIs.
+Note: MySQL Connector/J and valid MySQL credentials are required at runtime.
