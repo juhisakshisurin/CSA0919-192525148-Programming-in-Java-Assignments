@@ -1,0 +1,26 @@
+ASSIGNMENT 2 - Q5: GENERIC LEADERBOARD
+
+TEST 1 - SUPPLIED DATA
+[Eagles(9,6), Bisons(9,4), Panthers(9,4), Cobras(6,1)]
+Expected: [Eagles(9,6), Bisons(9,4), Panthers(9,4), Cobras(6,1)]
+Matches expected: true
+
+TEST 2 - MULTI-LEVEL TIES
+[Wolves(12,8), Aces(12,5), Falcons(12,5), Bears(10,9), Tigers(10,9), Lions(10,2), Sharks(7,0)]
+Comparator transitivity check: PASS
+
+TEST 3 - FAULTY COMPARATOR (POINTS ONLY)
+[Falcons(12,5), Aces(12,5), Wolves(12,8), Tigers(10,9), Bears(10,9), Lions(10,2), Sharks(7,0)]
+Faulty comparator satisfies full ranking rule: false
+Reason: teams tied on points are not ordered by goal difference and name.
+Subtraction comparator overflow test (expected High before Low): FAIL
+Safe Integer.compare test: PASS
+Original board insertion order remains unchanged: 4 entries; first inserted team is Panthers.
+
+SORT BENCHMARK (milliseconds; five repetitions)
+Size,AverageMilliseconds
+1000,1.119730
+10000,4.809156
+50000,25.047035
+
+CSV saved as task5_results.csv
