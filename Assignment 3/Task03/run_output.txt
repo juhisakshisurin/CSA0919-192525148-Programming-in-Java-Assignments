@@ -1,0 +1,27 @@
+=== MANUAL CLOSE: SUCCESSFUL INPUT ===
+Reading: store1.csv
+Reading: store2.csv
+Reading: store4.csv
+Report written: manual-success-report.txt
+Manual finally executed. Open readers: 0
+
+=== TRY-WITH-RESOURCES: SUCCESSFUL INPUT ===
+Reading: store1.csv
+Reading: store2.csv
+Reading: store4.csv
+Report written: twr-success-report.txt
+Try-with-resources finally executed. Open readers: 0
+
+=== MANUAL CLOSE: FAILURE PART-WAY ===
+Reading: store1.csv
+Reading: store2.csv
+Reading: store3_missing.csv
+Manual version error: input/store3_missing.csv
+Manual finally executed. Open readers: 2
+
+=== TRY-WITH-RESOURCES: SAME FAILURE ===
+Reading: store1.csv
+Reading: store2.csv
+Reading: store3_missing.csv
+Try-with-resources error: input/store3_missing.csv
+Try-with-resources finally executed. Open readers: 0
