@@ -1,0 +1,85 @@
+ASSIGNMENT 5 – PART A – TASK A3
+DAO DESIGN NOTES
+
+A3.1 – COMMON PATTERN
+Repeated steps:
+1. Obtain/open a JDBC Connection.
+2. Build or prepare the SQL statement.
+3. Execute the SQL operation.
+4. Process ResultSet rows into Java objects (for queries).
+5. Close ResultSet, Statement/PreparedStatement and Connection resources.
+
+Parts that differ:
+- Entity/table name (student, course or marks).
+- Column names, column types and primary-key types.
+- SQL parameter values and entity-specific validation/business rules.
+- Mapping of ResultSet columns into Student, Course or Marks objects.
+
+A3.2 – GENERIC DAO INTERFACE
+public interface Dao<T, K> {
+    void insert(T entity) throws SQLException;
+    Optional<T> findById(K id) throws SQLException;
+    List<T> findAll() throws SQLException;
+    boolean update(T entity) throws SQLException;
+    boolean delete(K id) throws SQLException;
+}
+
+Example StudentDao:
+public class StudentDao implements Dao<Student, Integer> {
+    private final Connection connection;
+
+    public StudentDao(Connection connection) {
+        this.connection = connection;
+    }
+
+    @Override
+    public void insert(Student student) throws SQLException {
+        String sql = "INSERT INTO student (student_id, name, email) VALUES (?, ?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, student.getStudentId());
+            ps.setString(2, student.getName());
+            ps.setString(3, student.getEmail());
+            ps.executeUpdate();
+        }
+    }
+
+    @Override
+    public Optional<Student> findById(Integer id) throws SQLException {
+        String sql = "SELECT student_id, name, email FROM student WHERE student_id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Student s = new Student(
+                        rs.getInt("student_id"),
+                        rs.getString("name"),
+                        rs.getString("email")
+                    );
+                    return Optional.of(s);
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    // findAll(), update() and delete() use the same JDBC pattern,
+    // with their corresponding SQL and entity mapping.
+}
+
+A3.3 – OBJECT/TABLE MAPPING
+Student.studentId -> student.student_id (INT, PRIMARY KEY)
+Student.name      -> student.name       (VARCHAR(100))
+Student.email     -> student.email      (VARCHAR(150))
+
+Illustrative table:
+CREATE TABLE student (
+    student_id INT PRIMARY KEY,
+    name       VARCHAR(100) NOT NULL,
+    email      VARCHAR(150) NOT NULL
+);
+
+ALTERNATIVE: SQL IN SERVICE/GUI
+- SQL and JDBC handling are scattered across multiple classes.
+- A renamed column may require edits at every SQL and mapping reference.
+- DAO centralises persistence logic; changes are usually limited to the affected DAO and schema migration.
+- Time/space complexity per database operation is essentially the same; DAO improves maintainability, not query asymptotic performance.
