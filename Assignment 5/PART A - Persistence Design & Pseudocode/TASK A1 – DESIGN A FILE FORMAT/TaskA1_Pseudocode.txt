@@ -1,0 +1,74 @@
+TASK A1 – PSEUDOCODE
+Text-file design: one UTF-8 CSV record per line; seven fields in this order:
+passId, registerNumber, name, routeNumber, boardingStop, validityDate, amountPaid.
+CSV_PARSE must honour quoted fields and doubled quotation marks.
+
+ALGORITHM ADD_PASS(pass)
+    VALIDATE all seven fields in pass
+    IF any field is invalid THEN
+        REPORT "Invalid pass record"
+        RETURN
+    ENDIF
+    OPEN passFile using FileWriter in APPEND mode
+    WRAP FileWriter with BufferedWriter
+    FORMAT pass as one CSV record in the specified field order
+    WRITE formatted record
+    WRITE line separator
+    FLUSH BufferedWriter
+    CLOSE BufferedWriter
+    REPORT "Pass added"
+END ALGORITHM
+
+ALGORITHM FIND_PASS_BY_ID(targetPassId)
+    IF passFile does not exist THEN
+        REPORT "Pass file not found"
+        RETURN NOT_FOUND
+    ENDIF
+    OPEN passFile using FileReader
+    WRAP FileReader with BufferedReader
+    WHILE a line can be read
+        IF line is empty THEN CONTINUE ENDIF
+        fields <- CSV_PARSE(line)
+        IF parsing fails OR number of fields is not 7 THEN
+            RECORD line number as damaged
+            CONTINUE
+        ENDIF
+        IF required fields are empty OR route/date/amount is invalid THEN
+            RECORD line number as damaged
+            CONTINUE
+        ENDIF
+        IF fields[1] equals targetPassId THEN
+            CLOSE BufferedReader
+            RETURN fields
+        ENDIF
+    ENDWHILE
+    CLOSE BufferedReader
+    RETURN NOT_FOUND
+END ALGORITHM
+
+ALGORITHM LIST_PASSES_BY_ROUTE(targetRoute)
+    IF passFile does not exist THEN
+        REPORT "Pass file not found"
+        RETURN empty list
+    ENDIF
+    matchingPasses <- empty list
+    OPEN passFile using FileReader
+    WRAP FileReader with BufferedReader
+    WHILE a line can be read
+        IF line is empty THEN CONTINUE ENDIF
+        fields <- CSV_PARSE(line)
+        IF parsing fails OR number of fields is not 7 THEN
+            RECORD line number as damaged
+            CONTINUE
+        ENDIF
+        IF required fields or numeric/date values are invalid THEN
+            RECORD line number as damaged
+            CONTINUE
+        ENDIF
+        IF integer value of fields[4] equals targetRoute THEN
+            ADD fields to matchingPasses
+        ENDIF
+    ENDWHILE
+    CLOSE BufferedReader
+    RETURN matchingPasses
+END ALGORITHM
