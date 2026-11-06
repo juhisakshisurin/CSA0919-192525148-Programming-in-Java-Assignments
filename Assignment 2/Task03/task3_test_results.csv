@@ -1,0 +1,5 @@
+Test,Class/design,Predicted set size or behaviour,Observed result,Interpretation
+Test 1,BrokenStudent; same object reference inserted twice,1,1,HashSet recognizes the same object reference
+Test 2,BrokenStudent; two distinct equal keys with different hash buckets,2,2,Missing hashCode() allows equal objects to occupy different buckets
+Test 3,MutableStudent; hash field changed after insertion,contains=false; remove=false; size=1,See run_output.txt,Object remains stored under its original bucket
+Corrected code,Student overrides hashCode() using regNo,2 unique students,2,Equal objects produce equal hash codes

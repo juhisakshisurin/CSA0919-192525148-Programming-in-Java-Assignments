@@ -1,0 +1,30 @@
+Assignment 2 (CO2) - Task 3
+Java version: 21.0.12.1
+
+TEST 1 - Same object scanned twice (broken class)
+Same object reference inserted twice: true
+Observed HashSet size: 1
+Prediction: 1, because HashSet recognizes the same object reference.
+
+TEST 2 - Different-bucket duplicate (broken class)
+Both objects have same regNo: true
+Bucket indexes: 11 and 3
+Observed HashSet size: 2
+Prediction: 2, because HashSet searches the bucket selected by hashCode().
+
+TEST 3 - Mutating a key after insertion
+Stored object register number changed.
+Original bucket: 11
+New bucket: 10
+contains(student): false
+remove(student): false
+Set size after failed lookup/removal: 1
+Prediction: contains and remove return false because the object remains in its old bucket.
+
+SUPPLIED COMPLETE-THE-CODE EXAMPLE - BEFORE TODO 1
+Unique students before hashCode(): 3
+Note: This particular three-object example can show 2 or 3 depending on identity hash buckets.
+
+CORRECTED IMPLEMENTATION - hashCode() added
+Unique students: 2
+Expected output: Unique students: 2
