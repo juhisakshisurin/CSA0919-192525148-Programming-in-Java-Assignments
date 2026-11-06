@@ -1,0 +1,22 @@
+ASSIGNMENT 2 - Q7: DIAGNOSE, REDESIGN AND VALIDATE
+Selected limitation: Q1 repeated String concatenation.
+Java version: 21.0.12.1
+Measured repetitions: 5; warm-up rounds: 3
+
+HighLoad (10000 tickets x 50 fields)
+Output equivalence: PASS
+Original String average: 42.1865 ms
+Redesigned StringBuilder average: 5.1349 ms
+Speed-up: 8.22x
+Estimated intermediate Strings: original=490000, redesign=0
+
+WideTicket (1000 tickets x 200 fields)
+Output equivalence: PASS
+Original String average: 39.0779 ms
+Redesigned StringBuilder average: 1.8939 ms
+Speed-up: 20.63x
+Estimated intermediate Strings: original=199000, redesign=0
+
+Raw measurements saved to: task7_results.csv
+Checksum: 0
+Note: timings vary by computer/JVM; use local measurements in final submission.
