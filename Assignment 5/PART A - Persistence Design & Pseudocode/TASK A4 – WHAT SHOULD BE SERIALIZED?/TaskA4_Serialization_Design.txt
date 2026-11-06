@@ -1,0 +1,49 @@
+ASSIGNMENT 5 – PART A – TASK A4
+WHAT SHOULD BE SERIALIZED?
+
+A4.1 – DECIDE WHAT TO PERSIST
+
+Persist:
+- Hostel and its list of Room objects.
+- Each Room and its list of Resident objects.
+- Resident.name.
+- Resident.registerNumber.
+
+Mark transient:
+- Resident.password: sensitive credential; do not include it in a general serialized snapshot. Prefer a secure credential store and never persist plaintext passwords here.
+- Resident.connection: live JDBC Connection is a runtime resource/session, not durable data. Recreate it through the connection manager after deserialization.
+
+Illustrative Java:
+class Resident implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String name;
+    private String registerNumber;
+    private transient String password;
+    private transient Connection connection;
+}
+
+Hostel, Room and Resident (and their collection fields) must be serializable for default serialization. ObjectOutputStream follows non-transient serializable references recursively: Hostel -> Room list -> each Room -> Resident list -> each Resident. It preserves object references/shared references and handles cycles. A reachable non-transient non-serializable object causes NotSerializableException.
+
+Transient fields are skipped. After deserialization, transient reference fields are null. Re-authenticate / retrieve credentials securely and establish a new JDBC connection; the old live connection is not restored.
+
+A4.2 – PLAN FOR CHANGE: ADDING phoneNumber
+
+If the new Resident class retains a compatible explicit serialVersionUID, an older stream can normally be read. Since the old stream has no phoneNumber value, the new String field receives its default value null. The program should handle null and request/update the phone number.
+
+If the local class serialVersionUID differs from the stream UID, deserialization fails with InvalidClassException. If no UID is declared, Java computes one from class details; class changes may change it. An explicit UID supports deliberate compatibility decisions but does not make every class change safe. Use validation and migration for incompatible changes.
+
+ALTERNATIVE – CSV OR JSON
+
+- Store durable fields only; do not export passwords or live connections.
+- CSV: one row per resident, with a header and room identifier/relationship field.
+- JSON: nested room/resident structures or explicit room IDs and resident objects.
+- Save n residents: O(n) time for Java serialization, CSV and JSON.
+- Load n residents: O(n) time for graph reconstruction or parsing.
+- Java serialization typically reconstructs an O(n) object graph in memory.
+- Streaming CSV/JSON parsing can use O(1) extra working memory (excluding retained application data); loading all records into a list uses O(n).
+- Java serialization is binary and Java-specific, often compact but includes object/class metadata.
+- CSV/JSON is text, usually more readable and portable; it may be larger due to textual representation and field names.
+- For new fields, Java serialization relies on serialVersionUID compatibility and defaults for absent fields; CSV/JSON can use headers or optional/missing properties with explicit defaults and schema migration.
+
+CONCLUSION
+Persist the durable hostel/room/resident data, not the password or live JDBC connection. A compatible serialVersionUID allows an old stream to load with the added String field set to null; an incompatible UID causes InvalidClassException. All approaches take O(n) time to save/load n records, while text formats are generally more portable and easier to evolve explicitly.
