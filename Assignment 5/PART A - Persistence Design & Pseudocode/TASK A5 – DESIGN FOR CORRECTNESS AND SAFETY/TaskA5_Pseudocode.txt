@@ -1,0 +1,89 @@
+ASSIGNMENT 5 – CO5
+PART A – TASK A5: DESIGN FOR CORRECTNESS AND SAFETY
+
+A5.1 – TRANSACTION DESIGN
+
+ALGORITHM TRANSFER_WALLET_AMOUNT(connection, hostelWalletId, canteenWalletId)
+    transferAmount <- 500
+    oldAutoCommit <- GET_AUTO_COMMIT(connection)
+
+    TRY
+        SET_AUTO_COMMIT(connection, FALSE)
+
+        debitRows <- EXECUTE_UPDATE(
+            "UPDATE wallet SET balance = balance - ? " +
+            "WHERE wallet_id = ? AND balance >= ?",
+            transferAmount, hostelWalletId, transferAmount)
+
+        IF debitRows NOT EQUAL TO 1 THEN
+            RAISE transfer failure
+        ENDIF
+
+        creditRows <- EXECUTE_UPDATE(
+            "UPDATE wallet SET balance = balance + ? WHERE wallet_id = ?",
+            transferAmount, canteenWalletId)
+
+        IF creditRows NOT EQUAL TO 1 THEN
+            RAISE transfer failure
+        ENDIF
+
+        COMMIT(connection)
+        DISPLAY "Transfer successful"
+
+    CATCH database error OR transfer failure
+        ROLLBACK(connection)
+        DISPLAY "Transfer failed; no wallet update was retained"
+
+    FINALLY
+        SET_AUTO_COMMIT(connection, oldAutoCommit)
+    ENDTRY
+END ALGORITHM
+
+Explanation:
+- Both updates run on the same Connection with auto-commit disabled.
+- The debit condition prevents a negative balance.
+- Each update must affect exactly one wallet row.
+- Commit occurs only after both updates succeed.
+- Any failure triggers rollback, undoing both changes.
+- The original auto-commit mode is restored.
+
+A5.2 – INJECTION ANALYSIS
+
+Unsafe query:
+String sql = "SELECT * FROM users WHERE id='" + id + "' AND pwd='" + pwd + "'";
+
+Example crafted ID:
+admin' OR '1'='1' -- 
+Password:
+wrong
+
+In a DBMS where -- followed by whitespace begins a comment, the condition becomes effectively:
+id = 'admin' OR '1'='1'
+The always-true condition can make the query return a row without a valid password. The vulnerability occurs because user input becomes part of SQL syntax.
+
+PreparedStatement redesign:
+String sql = "SELECT * FROM users WHERE id = ? AND pwd = ?";
+try (PreparedStatement ps = connection.prepareStatement(sql)) {
+    ps.setString(1, id);
+    ps.setString(2, pwd);
+    try (ResultSet rs = ps.executeQuery()) {
+        boolean authenticated = rs.next();
+    }
+}
+
+The placeholders keep SQL structure separate from input values. Injection characters are treated as data and cannot rewrite the WHERE clause. (For production authentication, store and verify password hashes rather than plaintext passwords.)
+
+ALTERNATIVE – TWO SEPARATE AUTO-COMMIT UPDATES
+
+If the debit is committed and the program fails before crediting the canteen wallet, the hostel wallet is debited but the canteen wallet is not credited. This partial transfer violates correctness.
+
+COMPLEXITY ANALYSIS
+
+- Both designs perform two wallet-row updates. With indexed wallet IDs and a fixed two-row transfer, row-work is O(1).
+- A transaction adds begin/commit/rollback, logging and coordination overhead. Actual latency depends on DBMS, locks and storage; it should be measured.
+- Application-side extra space for this fixed transfer is O(1) in both designs.
+- Separate auto-commit statements can have independent commit overhead and permit partial completion.
+- The transaction is preferred because its all-or-nothing guarantee protects the wallet balances.
+
+CONCLUSION
+Use one JDBC transaction for the debit and credit. Use PreparedStatement for login so supplied values cannot alter SQL structure.
